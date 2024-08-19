@@ -39,5 +39,4 @@ for c in range(cobrancas):  # Faz o detalhamento de todas as taxas condominiais
     print("=-" * 32)
     print(f"{total:.2f}")
     sleep(0.1)
-
 print(f"R${total:.2f}")
