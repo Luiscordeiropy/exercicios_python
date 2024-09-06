@@ -1,7 +1,7 @@
 from time import sleep
 from datetime import datetime, timedelta
 
-taxa_condominial = 255  # Taxa cobrada aos proprietários do condomínio
+taxa_condominial = 299.90  # Taxa cobrada aos proprietários do condomínio
 taxa_com_multa = taxa_condominial + (taxa_condominial * 0.02)  # Multa de 2%
 juros = 0.0033 * taxa_condominial  # Juros de 0,33% ao dia
 data1 = datetime.now()  # data de agora DD/MM/AAAA HORAS/MINUTOS/SEGUNDOS
