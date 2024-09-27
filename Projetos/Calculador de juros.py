@@ -1,15 +1,15 @@
 from time import sleep
 from datetime import datetime, timedelta
 
-taxa_condominial = 299.90  # Taxa cobrada aos proprietários do condomínio
+taxa_condominial = 255  # Taxa cobrada aos proprietários do condomínio
 taxa_com_multa = taxa_condominial + (taxa_condominial * 0.02)  # Multa de 2%
-juros = 0.0033 * taxa_condominial  # Juros de 0,33% ao dia
+juros = 0.00033 * taxa_condominial  # Juros de 0,33% ao dia
 data1 = datetime.now()  # data de agora DD/MM/AAAA HORAS/MINUTOS/SEGUNDOS
 data1.strftime("%d/%m/%Y")  # Formatação da data
 total = 0  # Valor total das taxas condominiais inadimplentes
 cobrancas = int(input("Quantos cobranças existem?"))
 for c in range(cobrancas):  # Faz o detalhamento de todas as taxas condominiais
-    print("=-" * 10, f"referente a cobrança {cobrancas}", "-=" * 10)
+    print(f"\n----*referente a cobrança {cobrancas}*----")
     if cobrancas > datetime.today().month:  # Se a cobrança é maior que o mês atual para que possa diminuir um ano no sistema
         ano = 2023
         mes = 13 - (cobrancas - datetime.today().month)  # Sistema para diminuir 1 ano a cada 12 meses
@@ -32,11 +32,10 @@ for c in range(cobrancas):  # Faz o detalhamento de todas as taxas condominiais
     diferenca = data1 - data2
     cobrancas -= 1  # Diminui uma cobrança para que a função "for" do começo do sistema, Volte para fazer a proxima taxa com inadimplência seguindo a ordem decrescente.
     totjuros = juros * diferenca.days  # Define o total de juros dessa cobrança
+    print(f"juros/multa com a taxa condominial: *R$ {taxa_com_multa + totjuros:.2f}* ")
     print("Quantidade de dias até hoje: ", diferenca.days)
     print(f"A quantidade de juros é de: {totjuros:.2f}")
-    print(f"Total de juros com a taxa condominial: {taxa_com_multa + totjuros:.2f} ")
     total += taxa_com_multa + totjuros
-    print("=-" * 32)
     print(f"{total:.2f}")
     sleep(0.1)
 print(f"R${total:.2f}")
